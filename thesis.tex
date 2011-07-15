@@ -1,0 +1,123 @@
+% **************************************************************************************************************
+% A Classic Thesis Style
+% An Homage to The Elements of Typographic Style
+%
+% Copyright (C) 2011 Andr\'e Miede http://www.miede.de
+%
+% Adapted to Stirling for Lyx by Jesse (jmb) 2010
+% Ripped out Lyx by Jamie (jrf) 2011
+% Adapted for general use by Claire (cma) 2011
+%
+% License:
+% This program is free software; you can redistribute it and/or modify
+% it under the terms of the GNU General Public License as published by
+% the Free Software Foundation; either version 2 of the License, or
+% (at your option) any later version.
+%
+% This program is distributed in the hope that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+% GNU General Public License for more details.
+%
+% You should have received a copy of the GNU General Public License
+% along with this program; see the file COPYING.  If not, write to
+% the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+% Boston, MA 02111-1307, USA.
+%
+% **************************************************************************************************************
+% Note:
+%    * You must not use "u etc. in strings/commands that will be spaced out (use \"u or real umlauts instead)
+%    * New enumeration (small caps): \begin{aenumerate} \end{aenumerate}
+%    * For margin notes: \graffito{}
+%    * Do not use bold fonts in this style, it is designed around them
+%    * Use tables as in the examples
+%    * See classicthesis-ldpkg.sty for useful commands
+% *****************************************************************************************************
+
+% Set the line spacing 
+\def \spacing {1.5}
+
+% Set the accent colour used (currently CS&M green)
+\RequirePackage[dvipsnames]{xcolor}
+\definecolor{csm}{rgb}{0,0.58,0}
+
+\documentclass[oneside,titlepage,fleqn,numbers=noenddot,headinclude,10pt,a4paper,BCOR5mm,footinclude=true,cleardoublepage=empty,abstractoff]{scrreprt}
+
+\listfiles
+
+\newcommand{\myTitle}{A Classic Thesis Style\xspace}
+\newcommand{\myDegree}{Doctor of Philosophy\xspace}
+\newcommand{\myName}{My Name\xspace}
+\newcommand{\mySupervisor}{My Supervisor Name\xspace}
+\newcommand{\myDepartment}{Insitute of Computing Science and Mathematics\xspace}
+\newcommand{\myUni}{\protect{University of Stirling}\xspace}
+\newcommand{\myLocation}{Stirling\xspace}
+\newcommand{\myTime}{July 2011\xspace}
+\newcommand{\myVersion}{Version 0.1\xspace}
+
+% Packages with options that might require adjustments
+\usepackage[latin1]{inputenc}
+\usepackage[ngerman,american,british]{babel}
+\usepackage[square,numbers]{natbib}
+\usepackage[fleqn]{amsmath} % math environments and more by the AMS
+%\usepackage{varioref} % load BEFORE classicthesis-ldpkg
+\usepackage{style/classicthesis-ldpkg} % [backref]
+
+% Options for classicthesis.sty:
+% tocaligned eulerchapternumbers drafting linedheaders listings
+% subfig nochapters beramono eulermath parts minionpro pdfspacing
+% dottedtoc minionprospacing manychapters floatperchapter
+\usepackage[eulerchapternumbers,drafting,listings,%linedheaders,%pdfspacing,%listings,
+						subfig,beramono,eulermath,parts,dottedtoc,floatperchapter]{style/classicthesis}%
+
+
+\begin{document}
+
+\frenchspacing
+\raggedbottom
+\selectlanguage{british}
+\pagestyle{plain}
+
+
+% Frontmatter
+\pagenumbering{roman}
+\include{content/beginningContent/titlepage}
+\include{content/beginningContent/titleback}
+\cleardoublepage
+\include{content/beginningContent/declaration}
+\cleardoublepage
+\include{content/beginningContent/abstract}
+\cleardoublepage
+\include{content/beginningContent/acknowledgments}
+\cleardoublepage
+\include{content/beginningContent/dedication}
+\cleardoublepage
+\include{content/beginningContent/publications}
+\pagestyle{scrheadings}
+\cleardoublepage
+\include{content/beginningContent/contents}
+
+
+% Mainmatter
+\pagenumbering{arabic}
+\cleardoublepage\myPart{Introduction} 				% Optional to have parts
+\include{content/chapter1/chapter1}
+\include{content/chapter2/chapter2}
+\cleardoublepage\myPart{My Contribution} 			% Optional to have parts
+\include{content/chapter3/chapter3}
+\include{content/chapter4/chapter4}
+\include{content/chapter5/chapter5}
+\cleardoublepage\myPart{Results and Conclusions} 	% Optional to have parts
+\include{content/chapter6/chapter6}
+\include{content/chapter7/chapter7}
+
+
+% Backmatter
+\appendix
+\cleardoublepage\myPart{Appendices} 				% Optional to have parts
+\include{content/appendixA/appendixA}
+\cleardoublepage
+\include{content/endContent/bibliography}
+
+\end{document}
+
