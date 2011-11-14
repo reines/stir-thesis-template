@@ -1,1 +1,9 @@
 /*.pdf
+/*.toc
+/*.out
+/*.lof
+/*.log
+/*.lol
+/*.lot
+/*.synctex.gz
+*.aux
