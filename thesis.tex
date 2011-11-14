@@ -49,15 +49,15 @@
 \newcommand{\myDegree}{Doctor of Philosophy\xspace}
 \newcommand{\myName}{My Name\xspace}
 \newcommand{\mySupervisor}{My Supervisor Name\xspace}
-\newcommand{\myDepartment}{Insitute of Computing Science and Mathematics\xspace}
+\newcommand{\myDepartment}{Institute of Computing Science and Mathematics\xspace}
 \newcommand{\myUni}{\protect{University of Stirling}\xspace}
 \newcommand{\myLocation}{Stirling\xspace}
 \newcommand{\myTime}{July 2011\xspace}
-\newcommand{\myVersion}{Version 0.1\xspace}
+\newcommand{\myVersion}{Version 0.2\xspace}
 
 % Packages with options that might require adjustments
 \usepackage[latin1]{inputenc}
-\usepackage[ngerman,american,british]{babel}
+\usepackage[american,british]{babel}
 \usepackage[square,numbers]{natbib}
 \usepackage{float}
 \usepackage[fleqn]{amsmath} % math environments and more by the AMS
@@ -98,43 +98,38 @@
 
 % Frontmatter
 \pagenumbering{roman}
-\include{content/beginningContent/titlepage}
-\include{content/beginningContent/titleback}
-\cleardoublepage
-\include{content/beginningContent/declaration}
-\cleardoublepage
-\include{content/beginningContent/abstract}
-\cleardoublepage
-\include{content/beginningContent/acknowledgments}
-\cleardoublepage
-\include{content/beginningContent/dedication}
-\cleardoublepage
-\include{content/beginningContent/publications}
-\pagestyle{scrheadings}
-\cleardoublepage
-\include{content/beginningContent/contents}
+\include{content/beginningContent/titlepage}\cleardoublepage
+\include{content/beginningContent/declaration}\cleardoublepage
+\include{content/beginningContent/abstract}\cleardoublepage
+\include{content/beginningContent/acknowledgments}\cleardoublepage
+\include{content/beginningContent/publications}\cleardoublepage %\pagestyle{scrheadings}???
+\include{content/beginningContent/contents}\cleardoublepage
 
-
-% Mainmatter
+% Content
 \pagenumbering{arabic}
-\cleardoublepage\myPart{Introduction} 				% Optional to have parts
+\cleardoublepage\myPart{Introduction}
 \include{content/chapter1/chapter1}
 \include{content/chapter2/chapter2}
-\cleardoublepage\myPart{My Contribution} 			% Optional to have parts
+
+\cleardoublepage\myPart{My Contribution}
 \include{content/chapter3/chapter3}
 \include{content/chapter4/chapter4}
 \include{content/chapter5/chapter5}
-\cleardoublepage\myPart{Results and Conclusions} 	% Optional to have parts
+
+\cleardoublepage\myPart{Results and Conclusions}
 \include{content/chapter6/chapter6}
 \include{content/chapter7/chapter7}
 
 
-% Backmatter
+% Bibliography
+\pagenumbering{roman}
+\include{content/endContent/bibliography}\cleardoublepage
+
+% Appendices
+\pagenumbering{arabic}
 \appendix
-\cleardoublepage\myPart{Appendices} 				% Optional to have parts
-\include{content/appendixA/appendixA}
-\cleardoublepage
-\include{content/endContent/bibliography}
+
+\cleardoublepage\myPart{Appendices}
+\include{content/appendixA/appendixA}\cleardoublepage
 
 \end{document}
-
