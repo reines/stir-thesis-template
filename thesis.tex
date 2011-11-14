@@ -59,6 +59,7 @@
 \usepackage[latin1]{inputenc}
 \usepackage[ngerman,american,british]{babel}
 \usepackage[square,numbers]{natbib}
+\usepacakge{float}
 \usepackage[fleqn]{amsmath} % math environments and more by the AMS
 %\usepackage{varioref} % load BEFORE classicthesis-ldpkg
 \usepackage{style/classicthesis-ldpkg} % [backref]
@@ -70,6 +71,22 @@
 \usepackage[eulerchapternumbers,drafting,listings,%linedheaders,%pdfspacing,%listings,
 						subfig,beramono,eulermath,parts,dottedtoc,floatperchapter]{style/classicthesis}%
 
+% Automtically convert .eps to .pdf for images
+\newif\ifpdf
+	\ifx\pdfoutput\undefined
+		\pdffalse
+	\else
+		\pdfoutput=1
+		\pdftrue
+	\fi
+	\ifpdf
+		\usepackage{graphicx}
+		\usepackage[update,suffix=]{epstopdf}
+		\DeclareGraphicsRule{.eps}{pdf}{.pdf}{`epstopdf #1}
+		\pdfcompresslevel=9
+	\else
+		\usepackage{graphicx}
+\fi
 
 \begin{document}
 
