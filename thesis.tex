@@ -43,7 +43,8 @@
 
 \documentclass[oneside,titlepage,fleqn,numbers=noenddot,headinclude,10pt,a4paper,BCOR5mm,footinclude=true,cleardoublepage=empty,abstractoff]{scrreprt}
 
-\listfiles
+% Include the list of acronyms
+\include{content/beginningContent/acronyms}
 
 \newcommand{\myTitle}{A Classic Thesis Style\xspace}
 \newcommand{\myDegree}{Doctor of Philosophy\xspace}
@@ -54,6 +55,11 @@
 \newcommand{\myLocation}{Stirling\xspace}
 \newcommand{\myTime}{July 2011\xspace}
 \newcommand{\myVersion}{Version 0.2\xspace}
+
+\newcommand{\addref}[1]{\todo[fancyline,color=green!80]{Add Reference: #1}}
+\newcommand{\addtext}[1]{\todo[inline, color=orange!80]{Add Text: #1}}
+\newcommand{\addimage}[1]{\missingfigure{Add Image: #1}}
+\newcommand{\proofread}[1]{\todo[inline,color=purple!80]{Proof Read: #1}}
 
 % Packages with options that might require adjustments
 \usepackage[latin1]{inputenc}
@@ -70,23 +76,6 @@
 % dottedtoc minionprospacing manychapters floatperchapter
 \usepackage[eulerchapternumbers,drafting,listings,%linedheaders,%pdfspacing,%listings,
 						subfig,beramono,eulermath,parts,dottedtoc,floatperchapter]{style/classicthesis}%
-
-% Automtically convert .eps to .pdf for images
-\newif\ifpdf
-	\ifx\pdfoutput\undefined
-		\pdffalse
-	\else
-		\pdfoutput=1
-		\pdftrue
-	\fi
-	\ifpdf
-		\usepackage{graphicx}
-		\usepackage[update,suffix=]{epstopdf}
-		\DeclareGraphicsRule{.eps}{pdf}{.pdf}{`epstopdf #1}
-		\pdfcompresslevel=9
-	\else
-		\usepackage{graphicx}
-\fi
 
 \begin{document}
 

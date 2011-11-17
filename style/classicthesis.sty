@@ -755,3 +755,20 @@
     pdfcreator={pdfLaTeX},%
     pdfproducer={LaTeX with hyperref and classicthesis}%
 }
+
+% Automtically convert .eps to .pdf for images
+\newif\ifpdf
+	\ifx\pdfoutput\undefined
+		\pdffalse
+	\else
+		\pdfoutput=1
+		\pdftrue
+	\fi
+	\ifpdf
+		\usepackage{graphicx}
+		\usepackage[update,suffix=]{epstopdf}
+		\DeclareGraphicsRule{.eps}{pdf}{.pdf}{`epstopdf #1}
+		\pdfcompresslevel=9
+	\else
+		\usepackage{graphicx}
+\fi
