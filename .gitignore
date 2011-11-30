@@ -5,5 +5,7 @@
 /*.log
 /*.lol
 /*.lot
+/*.blg
+/*.bbl
 /*.synctex.gz
 *.aux
