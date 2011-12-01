@@ -56,6 +56,10 @@
 \newcommand{\myTime}{July 2011\xspace}
 \newcommand{\myVersion}{Version 0.2\xspace}
 
+% These todos are a really useful way to make notes while you write - consider adding
+% your own, such as for adding questions for your supervisor when proofreading etc.
+% E.g. \mario{what do you think about this?}
+% Also automatically generates a todo list before your table of contents...
 \newcommand{\addref}[1]{\todo[fancyline,color=green!80]{Add Reference: #1}}
 \newcommand{\addtext}[1]{\todo[inline, color=orange!80]{Add Text: #1}}
 \newcommand{\addimage}[1]{\missingfigure{Add Image: #1}}
@@ -65,19 +69,16 @@
 \usepackage[latin1]{inputenc}
 \usepackage[american,british]{babel}
 \usepackage[square,numbers]{natbib}
-%\usepackage[sectcntreset]{bibtopic}
 \usepackage{float}
-\usepackage[fleqn]{amsmath} % math environments and more by the AMS
-%\usepackage{varioref} % load BEFORE classicthesis-ldpkg
-\usepackage{style/classicthesis-ldpkg} % [backref]
+\usepackage[fleqn]{amsmath}
+\usepackage{style/classicthesis-ldpkg}
 \usepackage[colorinlistoftodos]{todonotes}
 
 % Options for classicthesis.sty:
 % tocaligned eulerchapternumbers drafting linedheaders listings
 % subfig nochapters beramono eulermath parts minionpro pdfspacing
 % dottedtoc minionprospacing manychapters floatperchapter
-\usepackage[eulerchapternumbers,drafting,listings,%linedheaders,%pdfspacing,%listings,
-						subfig,beramono,eulermath,parts,dottedtoc,floatperchapter]{style/classicthesis}%
+\usepackage[eulerchapternumbers,drafting,listings,subfig,beramono,eulermath,parts,dottedtoc,floatperchapter]{style/classicthesis}%
 
 \begin{document}
 
