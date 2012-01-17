@@ -284,7 +284,7 @@ my $LetterPattern=$NamedLetterPattern{'default'};
 # Named patterns may replace or be appended to the original patterns.
 my %NamedWordPattern;
 $NamedWordPattern{'letters'}='@';
-$NamedWordPattern{'words'}='([a-zA-Z]+)([\-\'\.]?([a-zA-Z]+))*';
+$NamedWordPattern{'words'}='([a-zA-Z0-9]+)([\-\'\.]?([a-zA-Z0-9]+))*';
 my @WordPatterns=($NamedWordPattern{'words'});
 
 ### Macro option regexp list
