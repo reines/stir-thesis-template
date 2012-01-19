@@ -14,7 +14,7 @@ A latex thesis template designed for the Insititude of Computing Science and Mat
 
 ### Configuration
 
-- line spacing (note: can we toggle this using drafting?)
+- drafting
 
 ### TODO notes
 

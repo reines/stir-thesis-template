@@ -91,6 +91,25 @@
 \DeclareOption{floatperchapter}{\setboolean{@floatperchapter}{true}}
 \ProcessOptions\relax
 
+% ********************************************************************
+% Drafting Stuff
+% ********************************************************************
+\RequirePackage{scrtime} % time access
+\newcommand{\finalVersionString}{}
+\ifthenelse{\boolean{@drafting}}{%
+%    \RequirePackage{draftwatermark}%
+%    	\SetWatermarkLightness{0.9}
+%			\SetWatermarkScale{.5}
+%			\SetWatermarkText{\today\ at \thistime}
+		\RequirePackage[draft]{prelim2e}
+		\renewcommand{\PrelimWords}{\relax}
+		\renewcommand{\PrelimText}{\footnotesize[Draft\ \,\today\ at \thistime\,]}
+		\def \spacing {1.5}
+}{
+		\renewcommand{\finalVersionString}{\emph{Final Version} as of \today\ at \thistime.}
+		\def \spacing {2}
+}
+
 % subfig-related stuff
 \@ifpackageloaded{subfig}%
     {\setboolean{@subfig}{true}%
@@ -175,6 +194,7 @@
 %\definecolor{Maroon}{cmyk}{0, 0.87, 0.68, 0.32}
 \definecolor{RoyalBlue}{cmyk}{1, 1, 0.6, 0}
 %\definecolor{Black}{cmyk}{0, 0, 0, 0}
+\definecolor{csm}{rgb}{0,0.58,0}
 
 % ********************************************************************
 % Font Stuff
@@ -613,21 +633,6 @@
     \deffootnote{0em}{0em}{\thefootnotemark\hspace*{.5em}}
     %\setfnsymbol{bringhurst}   % use symbols recommended by guru Robert Bringhurst
     %\setlength{\footnotemargin}{-1em}
-
-% ********************************************************************
-% Drafting Stuff
-% ********************************************************************
-\RequirePackage{scrtime} % time access
-\newcommand{\finalVersionString}{}
-\ifthenelse{\boolean{@drafting}}{%
-%    \RequirePackage{draftwatermark}%
-%    	\SetWatermarkLightness{0.9}
-%			\SetWatermarkScale{.5}
-%			\SetWatermarkText{\today\ at \thistime}
-		\RequirePackage[draft]{prelim2e}
-       \renewcommand{\PrelimWords}{\relax}
-       \renewcommand{\PrelimText}{\footnotesize[\,\today\ at \thistime\,]}
-}{\renewcommand{\finalVersionString}{\emph{Final Version} as of \today\ at \thistime.}}
 
 % ********************************************************************
 % Caption numbering now w/o chapter number
