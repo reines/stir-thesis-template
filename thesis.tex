@@ -2,11 +2,12 @@
 % A Classic Thesis Style
 % An Homage to The Elements of Typographic Style
 %
-% Copyright (C) 2011 Andr\'e Miede http://www.miede.de
+% Copyright (C) 2011 Andr'e Miede http://www.miede.de
 %
-% Adapted to Stirling for Lyx by Jesse (jmb) 2010
-% Ripped out Lyx by Jamie (jrf) 2011
+% Adapted some more (:P) by Jamie (jrf) 2012
 % Adapted for general use by Claire (cma) 2011
+% Ripped out Lyx by Jamie (jrf) 2011
+% Adapted to Stirling for Lyx by Jesse (jmb) 2010
 %
 % License:
 % This program is free software; you can redistribute it and/or modify
@@ -36,9 +37,6 @@
 
 \documentclass[oneside,titlepage,fleqn,numbers=noenddot,headinclude,10pt,a4paper,BCOR5mm,footinclude=true,cleardoublepage=empty,abstractoff]{scrreprt}
 
-% Include the list of acronyms
-\include{content/beginningContent/acronyms}
-
 \newcommand{\myTitle}{University of Stirling PhD Thesis Template\xspace}
 \newcommand{\myDegree}{Doctor of Philosophy\xspace}
 \newcommand{\myName}{My Name\xspace}
@@ -64,12 +62,10 @@
 \usepackage[fleqn]{amsmath}
 \usepackage{style/classicthesis-ldpkg}
 \usepackage[colorinlistoftodos]{todonotes}
+\usepackage[eulerchapternumbers,drafting,listings,subfig,beramono,eulermath,parts,dottedtoc,floatperchapter]{style/classicthesis}
 
-% Options for classicthesis.sty:
-% tocaligned eulerchapternumbers drafting linedheaders listings
-% subfig nochapters beramono eulermath parts minionpro pdfspacing
-% dottedtoc minionprospacing manychapters floatperchapter
-\usepackage[eulerchapternumbers,drafting,listings,subfig,beramono,eulermath,parts,dottedtoc,floatperchapter]{style/classicthesis}%
+% Include the list of acronyms
+\include{content/beginningContent/acronyms}
 
 \begin{document}
 
