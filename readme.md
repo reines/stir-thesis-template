@@ -15,8 +15,14 @@ A latex thesis template designed for the Insititude of Computing Science and Mat
 ### Configuration
 
 ### TODO notes
+TODO notes are provided using the [todonotes](http://www.ctan.org/tex-archive/macros/latex/contrib/todonotes/) package.
 
 ### Acronyms
+Acronyms are provided using the [acronym](http://ctan.org/tex-archive/macros/latex/contrib/acronym) package.
+
+    \ac
+    \acs
+    \acl
 
 ### Publications
 
@@ -25,3 +31,4 @@ A latex thesis template designed for the Insititude of Computing Science and Mat
 ## Compiling
 
 ## Data recording
+
