@@ -46,13 +46,11 @@
 % Include the list of acronyms
 \include{content/beginningContent/acronyms}
 
-\newcommand{\myTitle}{A Classic Thesis Style\xspace}
+\newcommand{\myTitle}{University of Stirling PhD Thesis Template\xspace}
 \newcommand{\myDegree}{Doctor of Philosophy\xspace}
 \newcommand{\myName}{My Name\xspace}
-\newcommand{\mySupervisor}{My Supervisor Name\xspace}
 \newcommand{\myDepartment}{Institute of Computing Science and Mathematics\xspace}
 \newcommand{\myUni}{\protect{University of Stirling}\xspace}
-
 \newcommand{\myTime}{July 2011\xspace}
 
 % These todos are a really useful way to make notes while you write - consider adding
@@ -61,12 +59,13 @@
 % Also automatically generates a todo list before your table of contents...
 \newcommand{\addref}[1]{\todo[fancyline,color=green!80]{Add Reference: #1}}
 \newcommand{\addtext}[1]{\todo[inline, color=orange!80]{Add Text: #1}}
+\newcommand{\pastetext}[1]{\todo[inline, color=blue!80]{Paste Text: #1}}
 \newcommand{\addimage}[1]{\missingfigure{Add Image: #1}}
 \newcommand{\proofread}[1]{\todo[inline,color=purple!80]{Proof Read: #1}}
 
 % Packages with options that might require adjustments
-\usepackage[latin1]{inputenc}
-\usepackage[american,british]{babel}
+\usepackage[utf81]{inputenc}
+\usepackage[british]{babel}
 \usepackage[square,numbers]{natbib}
 \usepackage{float}
 \usepackage[fleqn]{amsmath}
@@ -77,7 +76,7 @@
 % tocaligned eulerchapternumbers drafting linedheaders listings
 % subfig nochapters beramono eulermath parts minionpro pdfspacing
 % dottedtoc minionprospacing manychapters floatperchapter
-\usepackage[eulerchapternumbers,listings,subfig,beramono,eulermath,parts,dottedtoc,floatperchapter]{style/classicthesis}%
+\usepackage[eulerchapternumbers,drafting,listings,subfig,beramono,eulermath,parts,dottedtoc,floatperchapter]{style/classicthesis}%
 
 \begin{document}
 
@@ -89,15 +88,18 @@
 
 % Frontmatter
 \pagenumbering{roman}
+
 \include{content/beginningContent/titlepage}\cleardoublepage
 \include{content/beginningContent/declaration}\cleardoublepage
 \include{content/beginningContent/abstract}\cleardoublepage
 \include{content/beginningContent/acknowledgments}\cleardoublepage
-\include{content/beginningContent/publications}\cleardoublepage %\pagestyle{scrheadings}???
+\include{content/beginningContent/publications}\cleardoublepage
 \include{content/beginningContent/contents}\cleardoublepage
+
 
 % Content
 \pagenumbering{arabic}
+
 \cleardoublepage\myPart{Introduction}
 \include{content/chapter1/chapter1}
 \include{content/chapter2/chapter2}
@@ -116,6 +118,7 @@
 \pagenumbering{roman}
 \include{content/endContent/bibliography}\cleardoublepage
 
+
 % Appendices
 \pagenumbering{arabic}
 \appendix
@@ -124,3 +127,4 @@
 \include{content/appendixA/appendixA}\cleardoublepage
 
 \end{document}
+
