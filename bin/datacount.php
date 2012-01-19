@@ -1,3 +1,4 @@
+#!/usr/bin/env php
 <?php
 
 // Start - Config
@@ -9,7 +10,7 @@ define('MIN_WORD_LENGTH', 3);
 define('MIN_WORD_FREQUENCY', 5);
 
 if (!file_exists('thesis.tex') || !file_exists('thesis.pdf'))
-	exit('No input file');
+	exit('No input file'."\n");
 
 $translations = array(
 	'thesis.tex'									=>	null,
