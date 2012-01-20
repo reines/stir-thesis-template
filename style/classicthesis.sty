@@ -261,7 +261,7 @@
             %\areaset[5mm]{336pt}{750pt} % ~ 336 * factor 2 + 33 head + 42 \the\footskip
             %\areaset[5mm]{411pt}{761pt} % 686 (factor 2.2) + 33 head + 42 head \the\footskip 10pt
             \areaset[20mm]{150mm}{267mm}
-			\setlength{\marginparwidth}{7em}%
+			\setlength{\marginparwidth}{20mm}%
             \setlength{\marginparsep}{2em}%
         }%
 	}
@@ -673,6 +673,13 @@
 %\renewcommand{\sfdefault}{iwona}
 %\usepackage{lmodern} % <-- no osf support :-(
 %\usepackage[urw-garamond]{mathdesign} <-- no osf support :-(
+
+
+%*******************************************************
+% Set table line color
+%*******************************************************
+\usepackage{colortbl}	% for coloured lines (such as in a table)
+\arrayrulecolor{CSMGreen}
 
 %*******************************************************
 % Fine-tuning for the text area
