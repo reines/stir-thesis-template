@@ -85,36 +85,31 @@
 \include{content/beginningContent/publications}\cleardoublepage
 \include{content/beginningContent/contents}\cleardoublepage
 
-\acresetall % Reset all acronyms so their full form is re-used within content
 
 % Content
 \pagenumbering{arabic}
+\acresetall % Reset all acronyms so their full form is re-used within content
 
-\cleardoublepage\myPart{Introduction}
 \include{content/chapter1/chapter1}
 \include{content/chapter2/chapter2}
-
-\cleardoublepage\myPart{My Contribution}
 \include{content/chapter3/chapter3}
 \include{content/chapter4/chapter4}
 \include{content/chapter5/chapter5}
-
-\cleardoublepage\myPart{Results and Conclusions}
 \include{content/chapter6/chapter6}
 \include{content/chapter7/chapter7}
-
-
-% Bibliography
-\pagenumbering{roman}
-\include{content/endContent/bibliography}\cleardoublepage
 
 
 % Appendices
 \pagenumbering{arabic}
 \appendix
 
-\cleardoublepage\myPart{Appendices}
 \include{content/appendixA/appendixA}\cleardoublepage
+
+
+% Bibliography
+\pagenumbering{roman}
+
+\include{content/endContent/bibliography}\cleardoublepage
 
 \end{document}
 

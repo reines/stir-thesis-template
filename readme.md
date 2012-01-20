@@ -16,6 +16,8 @@ A latex thesis template designed for the Insititude of Computing Science and Mat
 
 - drafting
 
+### Parts
+
 ### TODO notes
 
 TODO notes are provided using the [todonotes](http://www.ctan.org/tex-archive/macros/latex/contrib/todonotes/) package.
