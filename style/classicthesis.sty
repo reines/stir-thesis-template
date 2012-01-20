@@ -259,7 +259,8 @@
         }{% Palatino or other
         	\PackageInfo{classicthesis}{A4 paper, Palatino or other}
             %\areaset[5mm]{336pt}{750pt} % ~ 336 * factor 2 + 33 head + 42 \the\footskip
-            \areaset[5mm]{411pt}{761pt} % 686 (factor 2.2) + 33 head + 42 head \the\footskip 10pt
+            %\areaset[5mm]{411pt}{761pt} % 686 (factor 2.2) + 33 head + 42 head \the\footskip 10pt
+            \areaset[20mm]{150mm}{267mm}
 			\setlength{\marginparwidth}{7em}%
             \setlength{\marginparsep}{2em}%
         }%
@@ -378,7 +379,7 @@
         {\titlerule\vspace*{.9\baselineskip}\raggedright\spacedallcaps}[\normalsize\vspace*{.8\baselineskip}\titlerule]%
     }{% something like Bringhurst
     \titleformat{\chapter}[display]%
-        {\relax}{\mbox{}\marginpar{\vspace*{-3\baselineskip}\color{CSMGreen}\chapterNumber\thechapter}}{0pt}%
+        {\relax}{\mbox{}\marginpar{\vspace*{-3\baselineskip}\hspace*{-1\evensidemargin}\color{CSMGreen}\chapterNumber\thechapter}}{0pt}%
         {\raggedright\spacedallcaps}[\normalsize\vspace*{.8\baselineskip}\titlerule]%
     }
     % sections \FloatBarrier
