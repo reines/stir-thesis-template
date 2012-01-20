@@ -104,10 +104,10 @@
 		\RequirePackage[draft]{prelim2e}
 		\renewcommand{\PrelimWords}{\relax}
 		\renewcommand{\PrelimText}{\footnotesize[Draft\ \,\today\ at \thistime\,]}
-		\def \spacing {1.5}
+		\onehalfspacing
 }{
 		\renewcommand{\finalVersionString}{\emph{Final Version} as of \today\ at \thistime.}
-		\def \spacing {2}
+		\doublespacing
 }
 
 % subfig-related stuff
@@ -208,7 +208,6 @@
     }{%
         % default: Palatino
         \RequirePackage[osf,sc]{mathpazo} % Palatino with real small caps and old style figures
-        \linespread{\spacing} % a bit more for Palatino
     }
 
 \ifthenelse{\boolean{@beramono}}%
