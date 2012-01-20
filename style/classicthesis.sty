@@ -1,7 +1,7 @@
 % ********************************************************************
 % classicthesis.sty
 %
-% Copyright (C) 2011 Andr\'e Miede http://www.miede.de
+% Copyright (C) 2011 Andr'e Miede http://www.miede.de
 %
 % If you like the style then I would appreciate a postcard. My address
 % can be found in the file ClassicThesis.pdf. A collection of the
@@ -243,12 +243,12 @@
     {% A5
         \ifthenelse{\boolean{@minionpro}}%
         {% Minion gets some extra sizes
-        		\PackageInfo{classicthesis}{A5 paper, MinionPro}
+        	\PackageInfo{classicthesis}{A5 paper, MinionPro}
             \areaset[5mm]{278pt}{556pt}%
             \setlength{\marginparwidth}{5em}%
             \setlength{\marginparsep}{1.25em}%
         }{% Palatino or other
-        		\PackageInfo{classicthesis}{A5 paper, Palatino or other}
+        	\PackageInfo{classicthesis}{A5 paper, Palatino or other}
             \areaset[5mm]{288pt}{555pt}%
             \setlength{\marginparwidth}{4em}%
             \setlength{\marginparsep}{1.25em}%
@@ -256,15 +256,15 @@
 	}{% A4
         \ifthenelse{\boolean{@minionpro}}%
         {% Minion gets some extra sizes
-        		\PackageInfo{classicthesis}{A4 paper, MinionPro}
+        	\PackageInfo{classicthesis}{A4 paper, MinionPro}
             \areaset[5mm]{312pt}{684pt}% 609 + 33 + 42 head \the\footskip
             \setlength{\marginparwidth}{7.5em}%
             \setlength{\marginparsep}{2em}%
         }{% Palatino or other
-        		\PackageInfo{classicthesis}{A4 paper, Palatino or other}
+        	\PackageInfo{classicthesis}{A4 paper, Palatino or other}
             %\areaset[5mm]{336pt}{750pt} % ~ 336 * factor 2 + 33 head + 42 \the\footskip
-            \areaset[5mm]{411pt}{761pt} % 686 (factor 2.2) + 33 head + 42 head \the\footskip 10pt
-						\setlength{\marginparwidth}{7em}%
+            \areaset[20mm]{411pt}{761pt} % 686 (factor 2.2) + 33 head + 42 head \the\footskip 10pt
+			\setlength{\marginparwidth}{7em}%
             \setlength{\marginparsep}{2em}%
         }%
 	}
@@ -753,7 +753,7 @@
     pdfauthor={\textcopyright\ \myName, \myUni, \myDepartment},
 }
 
-% Automtically convert .eps to .pdf for images
+% Automatically convert eps files to pdf.
 \newif\ifpdf
 	\ifx\pdfoutput\undefined
 		\pdffalse
