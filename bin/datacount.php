@@ -21,8 +21,8 @@ define('THESIS_FILENAME', 'thesis');
 
 // End - Config
 
-if (!file_exists(THESIS_FILENAME.'.tex') || !file_exists(THESIS_FILENAME.'.pdf'))
-	exit('No input file (both .tex and .pdf required)'."\n");
+if (!file_exists(THESIS_FILENAME.'.tex') || !file_exists(THESIS_FILENAME.'.pdf') || !file_exists(THESIS_FILENAME.'.bbl'))
+	exit('No input file (.tex, .bbl, and .pdf required)'."\n");
 
 function filter_empty_string($var) {
 	return trim($var) !== '';
@@ -200,6 +200,14 @@ unset ($interested_files);
 $status = trim(shell_exec(PERL_PATH.' bin/texcount.pl -relaxed -inc -nosub -nosum -printThesisState -total -brief -q "'.THESIS_FILENAME.'.tex"'));
 $status = process_status($status);
 
+/** Count how many items are in the bibliography **/
+
+$references = @file_get_contents(THESIS_FILENAME.'.bbl');
+if ($references === false)
+	exit('Unable to count used references'."\n");
+
+$references = substr_count($references, '\\bibitem');
+
 /** Do something cool with the data... **/
 
 // Unset any wordcount data which doesn't have matching frequency data
@@ -241,6 +249,7 @@ curl_setopt($curl, CURLOPT_HTTPHEADER, array('Expect:'));	// Remove the expect h
 curl_setopt($curl, CURLOPT_POSTFIELDS, array(				// The data to submit...
 	'secret'		=> THESIS_WEB_SECRET,
 	'pages'			=> data_encode($numpages),
+	'references'	=> data_encode($references),
 	'chapters'		=> data_encode($chapters),
 	'status'		=> data_encode($status),
 ));
