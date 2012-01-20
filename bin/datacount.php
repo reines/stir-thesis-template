@@ -2,53 +2,37 @@
 <?php
 
 // Start - Config
+
+// Settings for the thesis-web interface
 define('THESIS_WEB_POST_URL', '');
 define('THESIS_WEB_SECRET', '');
-// End - Config
 
+// Settings for common word counting
 define('MIN_WORD_LENGTH', 3);
 define('MIN_WORD_FREQUENCY', 5);
+define('MAX_WORD_COUNT', 150);
 
-if (!file_exists('thesis.tex') || !file_exists('thesis.pdf'))
-	exit('No input file'."\n");
+// Path to a couple required binaries
+define('PDFTK_PATH', '/usr/bin/pdftk');
+define('PERL_PATH', '/usr/bin/perl');
 
-$translations = array(
-	'thesis.tex'									=>	null,
+// Filename of the thesis, minus it's extension
+define('THESIS_FILENAME', 'thesis');
 
-	'content/beginningContent/titlepage.tex'		=>	null,
-	'content/beginningContent/declaration.tex'		=>	null,
-	'content/beginningContent/abstract.tex'			=>	null,
-	'content/beginningContent/acknowledgments.tex'	=>	null,
-	'content/beginningContent/dedication.tex'		=>	null,
-	'content/beginningContent/publications.tex'		=>	null,
-	'content/beginningContent/contents.tex'			=>	null,
-	'content/endContent/bibliography.tex'			=>	null,
-);
+// End - Config
 
-$levels = array(
-	'part'			=> 0,
-	'chapter'		=> 1,
-	'section'		=> 2,
-	'subsection'	=> 3,
-	'subsubsection'	=> 4,
-	'paragraph'		=> 5,
-	'subparagraph'	=> 6,
-);
+if (!file_exists(THESIS_FILENAME.'.tex') || !file_exists(THESIS_FILENAME.'.pdf'))
+	exit('No input file (both .tex and .pdf required)'."\n");
 
 function filter_empty_string($var) {
 	return trim($var) !== '';
 }
 
 function translate_file_to_key($file) {
-	global $translations;
-
 	list ($type, $file) = explode(': ', $file);
 
 	if ($type == 'File(s) total')
 		$file = 'total';
-
-	while (array_key_exists($file, $translations))
-		$file = $translations[$file];
 
 	return $file;
 }
@@ -102,6 +86,11 @@ function accept_word($word) {
 }
 
 function process_frequencies($input) {
+	if (!preg_match('%number of unique words:\s*(\d+)%i', $input, $matches))
+		return null;
+
+	$total = $matches[1];
+
 	$lines = array_map('trim', explode("\n", $input));
 	$lines = array_filter($lines, 'filter_empty_string');
 
@@ -117,11 +106,22 @@ function process_frequencies($input) {
 		$words[$matches[1]] = intval($matches[2]);
 	}
 
-	return $words;
+	// Ensure the words are sorted with most common at the top
+	arsort($words);
+
+	// Trim the list of words to the top MAX_WORD_COUNT
+	$words = array_slice($words, 0, MAX_WORD_COUNT, true);
+
+	return array('total' => $total, 'words' => $words);
 }
 
 function process_status($input) {
-	global $levels;
+	static $levels;
+
+	if (!isset($levels)) {
+		$levels = array('part', 'chapter', 'section', 'subsection', 'subsubsection', 'paragraph', 'subparagraph');
+		$levels = array_combine(array_values($levels), array_keys($levels)); // swap around the key => value to value => key for fast reverse lookups
+	}
 
 	$lines = array_map('trim', explode("\n", $input));
 	$lines = array_filter($lines, 'filter_empty_string');
@@ -164,34 +164,32 @@ function process_status($input) {
 	return $sections;
 }
 
+/** Count the number of pages in the entire thesis **/
+
+$numpages = trim(shell_exec(PDFTK_PATH.' "'.THESIS_FILENAME.'.pdf" dump_data'));
+if (!preg_match('%NumberOfPages:\s*(\d+)%i', $numpages, $matches))
+	exit('Unable to count number of pages in PDF'."\n");
+
+$numpages = $matches[1];
 
 /** Fetch and process the word/header/float count for the thesis and each included file **/
 
-$wordcount = trim(shell_exec('/usr/bin/perl bin/texcount.pl -relaxed -q -inc -incbib -template="{T},{1},{4},{5}," "thesis.tex"'));
+$wordcount = trim(shell_exec(PERL_PATH.' bin/texcount.pl -relaxed -q -inc -incbib -template="{T},{1},{4},{5}," "'.THESIS_FILENAME.'.tex"'));
 $wordcount = process_wordcount($wordcount);
-
-/** Fetch and process the unique word count for the entire thesis **/
-
-$uniquewords = trim(shell_exec('/usr/bin/perl bin/texcount.pl -restricted -freqSummary -nosub -nosum -merge -q -template="{T}" "thesis.tex"'));
-list (, $uniquewords) = explode(',', $uniquewords);
-
-/** Count the number of pages in the entire thesis **/
-
-$numpages = trim(shell_exec('pdftk "thesis.pdf" dump_data | grep -i "NumberOfPages" | awk \'{print $2}\''));
 
 /** Fetch and process the word frequency for the entire thesis, and each chapter individually **/
 
 $interested_files = array();
 
-foreach (glob('content/chapter*/*.tex') as $file)
+foreach (glob('content/*/*.tex') as $file)
 	$interested_files[$file] = $file;
 
-$interested_files['total'] = 'thesis.tex';
+$interested_files['total'] = THESIS_FILENAME.'.tex';
 
 $frequencies = array();
 
 foreach ($interested_files as $title => $path) {
-	$frequencies[$title] = trim(shell_exec('/usr/bin/perl bin/texcount.pl -restricted -freq='.MIN_WORD_FREQUENCY.' -nosub -nosum -merge -q -template="{T}" "'.$path.'"'));
+	$frequencies[$title] = trim(shell_exec(PERL_PATH.' bin/texcount.pl -restricted -freq='.MIN_WORD_FREQUENCY.' -nosub -nosum -merge -q -template="{T}" "'.$path.'"'));
 	$frequencies[$title] = process_frequencies($frequencies[$title]);
 }
 
@@ -199,10 +197,36 @@ unset ($interested_files);
 
 /** Fetch and process the section progress for the entire thesis **/
 
-$status = trim(shell_exec('/usr/bin/perl bin/texcount.pl -relaxed -inc -nosub -nosum -printThesisState -total -brief -q "thesis.tex"'));
+$status = trim(shell_exec(PERL_PATH.' bin/texcount.pl -relaxed -inc -nosub -nosum -printThesisState -total -brief -q "'.THESIS_FILENAME.'.tex"'));
 $status = process_status($status);
 
 /** Do something cool with the data... **/
+
+// Unset any wordcount data which doesn't have matching frequency data
+foreach ($wordcount as $chapter => $data) {
+	if (!isset($frequencies[$chapter]))
+		unset($wordcount[$chapter]);
+}
+
+// Unset any frequency data which doesn't have matching wordcount data
+foreach ($frequencies as $chapter => $data) {
+	if (!isset($wordcount[$chapter]))
+		unset($frequencies[$chapter]);
+}
+
+$chapters = array();
+
+// Merge the frequency and wordcount data
+foreach ($wordcount as $chapter => $data) {
+	$chapters[$chapter] = array(
+		'unique_words'		=> $frequencies[$chapter]['total'],
+		'total_words'		=> $wordcount[$chapter]['words'],
+		'total_headers'		=> $wordcount[$chapter]['headers'],
+		'total_floats'		=> $wordcount[$chapter]['floats'],
+
+		'common_words'		=> $frequencies[$chapter]['words'],
+	);
+}
 
 function data_encode($data) {
 	return urlencode(gzcompress(serialize($data)));
@@ -216,12 +240,11 @@ curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);			// Return the result rather 
 curl_setopt($curl, CURLOPT_HTTPHEADER, array('Expect:'));	// Remove the expect header since Lighttpd goes ape shit
 curl_setopt($curl, CURLOPT_POSTFIELDS, array(				// The data to submit...
 	'secret'		=> THESIS_WEB_SECRET,
-	'wordcount'		=> data_encode($wordcount),
-	'uniquewords'	=> data_encode($uniquewords),
-	'numpages'		=> data_encode($numpages),
-	'frequencies'	=> data_encode($frequencies),
+	'pages'			=> data_encode($numpages),
+	'chapters'		=> data_encode($chapters),
 	'status'		=> data_encode($status),
 ));
 
 $response = curl_exec($curl);
 exit(curl_errno($curl));
+
