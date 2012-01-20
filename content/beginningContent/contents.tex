@@ -5,17 +5,21 @@
 % Table of TODOs
 %*******************************************************
 
-\refstepcounter{dummy}
-\pdfbookmark[0]{List of TODOs}{totd}
+\ifthenelse{\boolean{@drafting}} {
+	\refstepcounter{dummy}
+	\newcommand\listtodosname{List of Tasks}
+	\pdfbookmark[0]{\listtodosname}{totd}
 
-\listoftodos
-\clearpage
+	\listoftodos
+	\clearpage
+}{\relax}
 
 %*******************************************************
 % Table of contents
 %*******************************************************
 
 \refstepcounter{dummy}
+\renewcommand\contentsname{Table of Contents}
 \pdfbookmark[0]{\contentsname}{toc}
 
 \tableofcontents
