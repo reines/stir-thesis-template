@@ -188,13 +188,9 @@
 % Colors
 % ********************************************************************
 %\RequirePackage[dvipsnames]{xcolor} % [dvipsnames]
-\definecolor{halfgray}{gray}{0.55} % chapter numbers will be semi transparent .5 .55 .6 .0
-\definecolor{webgreen}{rgb}{0,0.3,0}
-\definecolor{webbrown}{rgb}{0.6,0,0}
-%\definecolor{Maroon}{cmyk}{0, 0.87, 0.68, 0.32}
+\definecolor{DarkGreen}{rgb}{0,0.3,0}
+\definecolor{CSMGreen}{rgb}{0,0.58,0}
 \definecolor{RoyalBlue}{cmyk}{1, 1, 0.6, 0}
-%\definecolor{Black}{cmyk}{0, 0, 0, 0}
-\definecolor{csm}{rgb}{0,0.58,0}
 
 % ********************************************************************
 % Font Stuff
@@ -372,17 +368,17 @@
     \titleformat{\part}[display]
         {\normalfont\centering\large}%
         {\thispagestyle{empty}\partname~\MakeTextUppercase{\thepart}}{1em}%
-        {\color{csm}\spacedallcaps}
+        {\color{CSMGreen}\spacedallcaps}
     }{\relax}
     % chapters
     \ifthenelse{\boolean{@linedheaders}}%
     {% lines above and below, number right
     \titleformat{\chapter}[display]%
-        {\relax}{\raggedleft{\color{csm}\chapterNumber\thechapter} \\ }{0pt}%
+        {\relax}{\raggedleft{\color{CSMGreen}\chapterNumber\thechapter} \\ }{0pt}%
         {\titlerule\vspace*{.9\baselineskip}\raggedright\spacedallcaps}[\normalsize\vspace*{.8\baselineskip}\titlerule]%
     }{% something like Bringhurst
     \titleformat{\chapter}[display]%
-        {\relax}{\mbox{}\marginpar{\vspace*{-3\baselineskip}\color{csm}\chapterNumber\thechapter}}{0pt}%
+        {\relax}{\mbox{}\marginpar{\vspace*{-3\baselineskip}\color{CSMGreen}\chapterNumber\thechapter}}{0pt}%
         {\raggedright\spacedallcaps}[\normalsize\vspace*{.8\baselineskip}\titlerule]%
     }
     % sections \FloatBarrier
@@ -443,7 +439,7 @@
 %      \renewcommand{\cftpartaftersnum}{\cftchapaftersnum}%
 %      \renewcommand{\cftpartaftersnumb}{\quad}%
 %      \setlength{\cftpartnumwidth}{\cftpartnumwidth}
-      \renewcommand{\cftpartfont}{\color{csm}\normalfont}%
+      \renewcommand{\cftpartfont}{\color{CSMGreen}\normalfont}%
       \renewcommand{\cftpartpagefont}{\normalfont}%
       \ifthenelse{\boolean{@dottedtoc}}{\relax}%
       {%
@@ -748,8 +744,8 @@
 \hypersetup{%
 	colorlinks=true,
     bookmarksnumbered, bookmarksopen=true, bookmarksopenlevel=0,
-    pdfborder={0 0 0},
-    urlcolor=webgreen, linkcolor=webgreen, citecolor=webgreen,
+    pdfborder=Black,
+    urlcolor=DarkGreen, linkcolor=DarkGreen, citecolor=DarkGreen,
     pdftitle={\myTitle},
     pdfauthor={\textcopyright\ \myName, \myUni, \myDepartment},
 }
