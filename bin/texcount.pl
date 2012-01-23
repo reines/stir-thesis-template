@@ -436,8 +436,8 @@ my %TeXmacro=(%TeXheader,%TeXpreamble,%TeXfloatinc,
      'beginthebibliography'=>1,'beginlrbox'=>1,
      '\begin'=>1,'\end'=>1,'\title'=>[2],
      '\addtocontents'=>2,'\addcontentsline'=>3,
-     '\uppercase'=>0,'\lowercase'=>0, '\refstepcounter'=>1, '\pdfbookmark'=>4, 
-	 '\url'=>1, '\addref'=>0, '\addproject'=>0, '\addtext'=>0, '\proofread'=>0, '\ken'=>0, '\keninline'=>0, '\addimage'=>0, '\towrite'=>0, '\note'=>0);
+     '\uppercase'=>0,'\lowercase'=>0, '\refstepcounter'=>1, '\pdfbookmark'=>2, 
+	 '\url'=>1, '\addref'=>0, '\addex'=>0, '\pastetext'=>1, '\addproject'=>1, '\addtext'=>1, '\proofread'=>0, '\ken'=>0, '\keninline'=>0, '\addimage'=>1, '\towrite'=>0, '\note'=>0);
 
 ### Macros that should be counted as one or more words
 # Macros that represent text may be declared here. The value gives
