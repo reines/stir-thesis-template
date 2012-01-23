@@ -44,6 +44,17 @@
 \newcommand{\myUni}{\protect{University of Stirling}\xspace}
 \newcommand{\myTime}{July 2011\xspace}
 
+% Packages with options that might require adjustments
+\usepackage[utf8]{inputenc}
+\usepackage[british]{babel}
+\usepackage[square,numbers]{natbib}
+\usepackage[fleqn]{amsmath}
+\usepackage{style/classicthesis-ldpkg}
+\usepackage{wrapfig}
+\usepackage{listings}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[eulerchapternumbers,drafting,listings,subfig,beramono,eulermath,dottedtoc,floatperchapter]{style/classicthesis}
+
 % These todos are a really useful way to make notes while you write - consider adding
 % your own, such as for adding questions for your supervisor when proofreading etc.
 % E.g. \mario{what do you think about this?}
@@ -54,19 +65,6 @@
 \newcommand{\addtext}[1]{\todo[inline, color=orange!80, size=\footnotesize]{\textbf{Add Text:} #1}}
 \newcommand{\addimage}[1]{\missingfigure[size=\footnotesize]{\textbf{Add Image:} #1}}
 \newcommand{\proofread}{\todo[inline, color=purple!80, size=\footnotesize]{\textbf{Proof Read}}}
-
-% Packages with options that might require adjustments
-\usepackage[utf8]{inputenc}
-\usepackage[british]{babel}
-\usepackage[square,numbers]{natbib}
-\usepackage{float}
-\usepackage[fleqn]{amsmath}
-\usepackage{style/classicthesis-ldpkg}
-\usepackage{float}
-\usepackage{wrapfig}
-\usepackage{listings}
-\usepackage[colorinlistoftodos]{todonotes}
-\usepackage[eulerchapternumbers,drafting,listings,subfig,beramono,eulermath,dottedtoc,floatperchapter]{style/classicthesis}
 
 % Include the list of acronyms
 \include{content/beginningContent/acronyms}
