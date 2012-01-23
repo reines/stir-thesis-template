@@ -55,7 +55,7 @@ Unfortunately the list of acronyms is not automatically sorted. You probably wan
 
 Found In the [SGRS Postgraduate Research Student Handbook](http://www.research.stir.ac.uk/documents/PGRHandbook2010-11FINALVERSION.pdf)(2010/11 version) and the [CS&M Research Student Guide](http://pgtips.cs.stir.ac.uk/sites/default/files/Research%20Student%20Guide-together-2009.pdf)(2009 version). The template should meet all the requirements, however they are described here for reference.
 
-- Margins should be 15mm, with a 40mm left margin for binding.
+- Margins should be around 15mm, with a 40mm left margin for binding.
 - Regular text should be 10pt using a Serif font.
 - Double line spacing should be used.
 - It must be printed single sided on A4 paper.
