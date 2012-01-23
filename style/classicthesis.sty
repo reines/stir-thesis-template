@@ -680,6 +680,9 @@
 \usepackage{colortbl}	% for coloured lines (such as in a table)
 \arrayrulecolor{CSMGreen}
 
+\let\footnoteruleX\footnoterule
+\renewcommand{\footnoterule}{\color{CSMGreen}\footnoteruleX\color{Black}}
+
 %*******************************************************
 % Fine-tuning for the text area
 %*******************************************************
