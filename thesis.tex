@@ -48,11 +48,12 @@
 % your own, such as for adding questions for your supervisor when proofreading etc.
 % E.g. \mario{what do you think about this?}
 % Also automatically generates a todo list before your table of contents...
-\newcommand{\addref}[1]{\todo[fancyline,color=green!80]{Add Reference: #1}}
-\newcommand{\addtext}[1]{\todo[inline, color=orange!80]{Add Text: #1}}
-\newcommand{\pastetext}[1]{\todo[inline, color=blue!80]{Paste Text: #1}}
-\newcommand{\addimage}[1]{\missingfigure{Add Image: #1}}
-\newcommand{\proofread}[1]{\todo[inline,color=purple!80]{Proof Read: #1}}
+\newcommand{\addref}{\todo[inline, color=green!80, size=\footnotesize]{\textbf{Add Reference}}}
+\newcommand{\addex}{\todo[inline, color=green!80, size=\footnotesize]{\textbf{Add Example}}}
+\newcommand{\pastetext}[1]{\todo[inline, color=blue!80, size=\footnotesize]{\textbf{Paste Text:} #1}}
+\newcommand{\addtext}[1]{\todo[inline, color=orange!80, size=\footnotesize]{\textbf{Add Text:} #1}}
+\newcommand{\addimage}[1]{\missingfigure[size=\footnotesize]{\textbf{Add Image:} #1}}
+\newcommand{\proofread}{\todo[inline, color=purple!80, size=\footnotesize]{\textbf{Proof Read}}}
 
 % Packages with options that might require adjustments
 \usepackage[utf8]{inputenc}
