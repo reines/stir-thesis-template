@@ -166,6 +166,10 @@ function process_status($input) {
 	return $sections;
 }
 
+/** Note the current time **/
+
+$now = time();
+
 /** Count the number of pages in the entire thesis **/
 
 $numpages = trim(shell_exec(PDFTK_PATH.' "'.THESIS_FILENAME.'.pdf" dump_data'));
@@ -251,6 +255,7 @@ curl_setopt($curl, CURLOPT_HTTPHEADER, array('Expect:'));	// Remove the expect h
 curl_setopt($curl, CURLOPT_POSTFIELDS, array(				// The data to submit...
 	'userid'		=> data_encode(THESIS_WEB_USERID),
 	'secret'		=> data_encode(THESIS_WEB_SECRET),
+	'date'			=> data_encode($now),
 	'pages'			=> data_encode($numpages),
 	'references'	=> data_encode($references),
 	'chapters'		=> data_encode($chapters),
