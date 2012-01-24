@@ -4,7 +4,9 @@
 // Start - Config
 
 // Settings for the thesis-web interface
-define('THESIS_WEB_POST_URL', '');
+define('THESIS_WEB_POST_URL', 'http://www.jamierf.co.uk/wp-content/misc/thesis/record.php');
+
+define('THESIS_WEB_USERID', '');
 define('THESIS_WEB_SECRET', '');
 
 // Settings for common word counting
@@ -247,7 +249,8 @@ curl_setopt($curl, CURLOPT_POST, true);						// POST the data
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);			// Return the result rather than spitting it out
 curl_setopt($curl, CURLOPT_HTTPHEADER, array('Expect:'));	// Remove the expect header since Lighttpd goes ape shit
 curl_setopt($curl, CURLOPT_POSTFIELDS, array(				// The data to submit...
-	'secret'		=> THESIS_WEB_SECRET,
+	'userid'		=> data_encode(THESIS_WEB_USERID),
+	'secret'		=> data_encode(THESIS_WEB_SECRET),
 	'pages'			=> data_encode($numpages),
 	'references'	=> data_encode($references),
 	'chapters'		=> data_encode($chapters),
