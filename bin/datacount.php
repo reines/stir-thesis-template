@@ -143,6 +143,9 @@ function process_status($input) {
 
 		$level = $levels[$type];
 
+		if (empty($weight))
+			$weight = 0;
+
 		if ($level > $last_level)
 			$parent_idx = $current_idx - 1;
 
