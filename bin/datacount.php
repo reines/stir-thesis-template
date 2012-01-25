@@ -262,6 +262,6 @@ curl_setopt($curl, CURLOPT_POSTFIELDS, array(				// The data to submit...
 	'status'		=> data_encode($status),
 ));
 
-$response = curl_exec($curl);
+echo curl_exec($curl)."\n";
 exit(curl_errno($curl));
 
