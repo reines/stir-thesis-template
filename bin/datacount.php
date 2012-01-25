@@ -136,7 +136,7 @@ function process_status($input) {
 	$parent_idx = -1;
 
 	foreach ($lines as $line) {
-		@list ($type, $title, $state, $include) = explode("\t", $line);
+		@list ($type, $title, $state, $weight) = explode("\t", $line);
 
 		if (!array_key_exists($type, $levels))
 			continue;
@@ -156,7 +156,7 @@ function process_status($input) {
 			'level'			=> $level,
 			'title'			=> $title,
 			'state'			=> $state,
-			'include'		=> ($include == null || $include == 'y'),
+			'weight'		=> $weight,
 			'parent_idx'	=> $parent_idx,
 		);
 
