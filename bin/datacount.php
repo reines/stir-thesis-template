@@ -149,7 +149,7 @@ function process_status($input) {
 		while ($parent_idx > -1 && $level <= $sections[$parent_idx]['level'])
 			$parent_idx = $sections[$parent_idx]['parent_idx'];
 
-		if ($state == 0 && $parent_idx > -1)
+		if ($state === '0' && $parent_idx > -1)
 			$state = $sections[$parent_idx]['state'];
 
 		$sections[$current_idx++] = array(
