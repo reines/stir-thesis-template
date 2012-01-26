@@ -20,7 +20,7 @@ var translations = <?php echo json_encode($translations); ?>;
 var cache_dir = '<?php echo 'cache/'.sha1($userid).'/'; ?>';
 
 </script>
-<h1>Thesis and Ridiculous Data</h1>
+<h1><?php echo 'LaTeX Project Statistics - '.htmlspecialchars($userid); ?></h1>
 <ul>
 	<li><a href="status.php?userid=<?php echo $userid; ?>">Status so Far...</a></li>
 </ul>
