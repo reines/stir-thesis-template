@@ -59,12 +59,13 @@
 % your own, such as for adding questions for your supervisor when proofreading etc.
 % E.g. \mario{what do you think about this?}
 % Also automatically generates a todo list before your table of contents...
-\newcommand{\addref}{\todo[inline, color=green!80, size=\footnotesize]{\textbf{Add Reference}}}
-\newcommand{\addex}{\todo[inline, color=green!80, size=\footnotesize]{\textbf{Add Example}}}
-\newcommand{\pastetext}[1]{\todo[inline, color=blue!80, size=\footnotesize]{\textbf{Paste Text:} #1}}
-\newcommand{\addtext}[1]{\todo[inline, color=orange!80, size=\footnotesize]{\textbf{Add Text:} #1}}
-\newcommand{\addimage}[1]{\missingfigure[size=\footnotesize]{\textbf{Add Image:} #1}}
-\newcommand{\proofread}{\todo[inline, color=purple!80, size=\footnotesize]{\textbf{Proof Read}}}
+\newcommand{\addref}{\todo[inline, color=green!80, size=\footnotesize]{\textbf{Ch.~\thechapter~--~Add Reference}}}
+\newcommand{\addex}{\todo[inline, color=green!80, size=\footnotesize]{\textbf{Ch.~\thechapter~--~Add Example}}}
+\newcommand{\pastetext}[1]{\todo[inline, color=blue!80, size=\footnotesize]{\textbf{Ch.~\thechapter~--~Paste Text:} #1}}
+\newcommand{\addtext}[1]{\todo[inline, color=orange!80, size=\footnotesize]{\textbf{Ch.~\thechapter~--~Add Text:} #1}}
+\newcommand{\addimage}[1]{\missingfigure[size=\footnotesize]{\textbf{Ch.~\thechapter~--~Add Image:} #1}}
+\newcommand{\redraft}[1]{\todo[inline, color=orange!80, size=\footnotesize]{\textbf{Ch.~\thechapter~--~Redraft:} #1}}
+\newcommand{\proofread}{\todo[inline, color=purple!80, size=\footnotesize]{\textbf{Ch.~\thechapter~--~Proof Read}}}
 
 % Include the list of acronyms
 \include{content/beginningContent/acronyms}

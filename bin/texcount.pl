@@ -438,7 +438,7 @@ my %TeXmacro=(%TeXheader,%TeXpreamble,%TeXfloatinc,
      '\addtocontents'=>2,'\addcontentsline'=>3,
      '\uppercase'=>0,'\lowercase'=>0, '\refstepcounter'=>1, '\pdfbookmark'=>2, 
 	 '\url'=>1, '\hypersetup'=>1, '\boolean'=>1,
-	 '\addref'=>0, '\addex'=>0, '\pastetext'=>1, '\addproject'=>1, '\addtext'=>1, '\proofread'=>0, '\ken'=>0, '\keninline'=>0, '\addimage'=>1, '\towrite'=>0, '\note'=>0 # custom - added in thesis.tex
+	 '\addref'=>0, '\addex'=>0, '\pastetext'=>1, '\addproject'=>1, '\addtext'=>1, '\redraft'=>1,  '\proofread'=>0, '\ken'=>0, '\keninline'=>0, '\addimage'=>1, '\towrite'=>0, '\note'=>0 # custom - added in thesis.tex
 );
 
 ### Macros that should be counted as one or more words
