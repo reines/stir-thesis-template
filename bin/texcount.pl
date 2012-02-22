@@ -437,7 +437,7 @@ my %TeXmacro=(%TeXheader,%TeXpreamble,%TeXfloatinc,
      '\begin'=>1,'\end'=>1,'\title'=>[2],
      '\addtocontents'=>2,'\addcontentsline'=>3,
      '\uppercase'=>0,'\lowercase'=>0, '\refstepcounter'=>1, '\pdfbookmark'=>2, 
-	 '\url'=>1, '\hypersetup'=>1, '\boolean'=>1,
+	 '\url'=>1, '\hypersetup'=>1, '\hypertarget'=>1, '\hyperlink'=>1, '\boolean'=>1,
 	 '\addref'=>0, '\addex'=>0, '\pastetext'=>1, '\addproject'=>1, '\addtext'=>1, '\redraft'=>1,  '\proofread'=>0, '\ken'=>0, '\keninline'=>0, '\addimage'=>1, '\towrite'=>0, '\note'=>0 # custom - added in thesis.tex
 );
 
