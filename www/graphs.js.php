@@ -14,7 +14,7 @@ foreach ($result as $row)
 header('Content-type: text/javascript');
 
 ?>
-
 var translations = <?php echo json_encode($translations); ?>;
+
 var cache_dir = '<?php echo 'http://www.jamierf.co.uk/wp-content/misc/thesis/cache/'.sha1($userid).'/'; ?>';
 

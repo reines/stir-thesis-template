@@ -6,7 +6,7 @@
 
 		<!-- Styles -->
 		<link rel="stylesheet" type="text/css" href="style/style.css" />
-		<link rel="stylesheet" type="text/css" href="lib/jquery-ui-1.8.16.custom.css" />
+		<link rel="stylesheet" type="text/css" href="style/jquery-ui-1.8.16.custom.css" />
 
 		<!-- Javascripts -->
 		<script type="text/javascript" src="lib/jquery-1.7.1.min.js"></script>
