@@ -1,4 +1,5 @@
 /data/*
+/www/cache/*
 /*.pdf
 /*.toc
 /*.out
