@@ -4,7 +4,7 @@
 // Start - Config
 
 // Settings for the thesis-web interface
-define('THESIS_WEB_POST_URL', 'http://www.jamierf.co.uk/wp-content/misc/thesis/record.php');
+define('THESIS_WEB_POST_URL', 'http://robin.jamierf.co.uk/thesis/record.php');
 
 define('THESIS_WEB_USERID', '');
 define('THESIS_WEB_SECRET', '');
