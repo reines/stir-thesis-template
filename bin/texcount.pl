@@ -1492,7 +1492,7 @@ sub _parse_macro {
 			{
 				my $state = $2;
 				if (!$state) {
-					$state = "-1";
+					$state = "0";
 				}				
 				print substr($next,1) . "\t" . $1 . "\t" . $state;
 				if ($3) { print "\t" . $3 };
