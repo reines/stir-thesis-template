@@ -16,3 +16,4 @@
 *.aux
 *.make
 *.temp
+/.texpadtmp/
